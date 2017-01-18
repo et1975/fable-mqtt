@@ -1,0 +1,15 @@
+{
+    "projFile": "./Fable.Mqtt.fsproj",
+    "sourceMaps": true,
+    "babelPlugins": ["transform-runtime"],
+    "outDir": "npm",
+    "module": "es2015",
+    "dll": true,
+    "targets": {
+        "umd": {
+            "outDir": "npm/umd",
+            "module": "umd",
+            "dll": false
+        }
+    }
+}
