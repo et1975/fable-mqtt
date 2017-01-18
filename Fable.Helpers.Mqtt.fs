@@ -1,4 +1,4 @@
-﻿module internal Fable.Helpers.Mqtt
+﻿module Fable.Helpers.Mqtt
     
 open Fable.Core
 open Fable.Import.JS

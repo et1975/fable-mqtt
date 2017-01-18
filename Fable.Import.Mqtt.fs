@@ -103,5 +103,3 @@ module mqtt =
 //        abstract createConnection(?port: float, ?host: string, ?callback: Function): Connection = failwith "JS only"
 //        abstract createServer(?listener: Function): Server = failwith "JS only"
 //        abstract createSecureServer(keyPath: string, certPath: string, ?listener: Function): Server = failwith "JS only"
-
-
