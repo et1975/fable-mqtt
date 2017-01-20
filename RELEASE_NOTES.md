@@ -1,6 +1,14 @@
+### 0.4.0
+
+* Moving away from DLL artifacts and reverting back to regular fable import files
+
+### 0.3.0
+
+* Implementing global connection functions
+
 ### 0.2.0
 
-* Exposed Fable.Helpers.Mqtt module.
+* Exposed Fable.Helpers.Mqtt module
 
 ### 0.1.0
 
