@@ -3,6 +3,7 @@
 open Fable.Core
 open Fable.Import.JS
 open Fable.Import.Mqtt
+open Fable.Core.JsInterop
 
 type [<KeyValueList>] ClientOptions =
     | Keepalive of float
@@ -29,5 +30,3 @@ let callback (handler: string -> 'a -> unit) = System.Func<string,string,unit>(f
 
 [<Import("*","mqtt")>]
 let mqtt : Static = jsNative
-
-let inline connect url opts = mqtt.connect (url, unbox opts)

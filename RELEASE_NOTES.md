@@ -1,3 +1,8 @@
+### 0.5.0
+
+* Adding connect() overloads
+* Removing connect helper
+
 ### 0.4.0
 
 * Moving away from DLL artifacts and reverting back to regular fable import files

@@ -77,4 +77,5 @@ module Mqtt =
         inherit EventEmitter
 
     type [<Import("mqtt","mqtt")>] Static =
+        abstract connect: brokerUrl: string -> Client
         abstract connect: brokerUrl: string * opts: IClientOptions list -> Client
