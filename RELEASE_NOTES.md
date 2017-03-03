@@ -1,3 +1,7 @@
+### 0.6.0
+
+* Use ofJson instead of JSON.parse. This is better suited for Fable.JsonConverter.
+
 ### 0.5.0
 
 * Adding connect() overloads

@@ -26,7 +26,8 @@ type [<KeyValueList>] SecureClientOptions =
     | RejectUnauthorized of bool
     interface IClientOptions
 
-let callback (handler: string -> 'a -> unit) = System.Func<string,string,unit>(fun topic msg -> JSON.parse msg :?> 'a |> handler topic)
+let [<PassGenericsAttribute>] callback (handler: string -> 'a -> unit) = 
+    System.Func<string,string,unit>(fun topic msg -> ofJson msg |> handler topic)
 
 [<Import("*","mqtt")>]
 let mqtt : Static = jsNative

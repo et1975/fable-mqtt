@@ -10,6 +10,7 @@ npm-debug.log
 samples/**/public
 
 .vscode/
+.vs
 
 # F#
 .fake/
