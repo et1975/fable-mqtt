@@ -5,7 +5,7 @@ open Fable.Import.JS
 open Fable.Import.Mqtt
 open Fable.Core.JsInterop
 
-type [<KeyValueList>] ClientOptions =
+type ClientOptions =
     | Keepalive of float
     | ClientId of string
     | ProtocolId of string
@@ -20,7 +20,7 @@ type [<KeyValueList>] ClientOptions =
     | Will of obj
     interface IClientOptions
 
-type [<KeyValueList>] SecureClientOptions =
+type SecureClientOptions =
     | KeyPath of string
     | CertPath of string
     | RejectUnauthorized of bool

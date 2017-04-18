@@ -1,6 +1,6 @@
 {
   "name": "fable-mqtt",
-  "version": "0.0.0",
+  "version": "0.7.0",
   "description": "Fable bindings for MQTT javascript library mqttjs",
   "main": "index.js",
   "scripts": {
@@ -12,12 +12,7 @@
     "Fable",
     "MQTT"
   ],
-  "dependencies": {
-    "babel-plugin-transform-runtime": "^6.15.0",
-    "babel-runtime": "^6.18.0",
-    "fable-compiler": "^0.7.31",
-    "fable-core": "^0.7.23",
-    "fs-extra": "^1.0.0",
+  "peerDependencies": {
     "mqtt": "^2.2.1"
   },
   "author": "Justin Sacks",
