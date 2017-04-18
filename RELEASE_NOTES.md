@@ -1,3 +1,7 @@
+### 0.7.0
+
+* Fable 1.0 compat
+
 ### 0.6.0
 
 * Use ofJson instead of JSON.parse. This is better suited for Fable.JsonConverter.

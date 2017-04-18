@@ -1,6 +1,5 @@
 ﻿namespace Fable.Import
 open System
-open System.Text.RegularExpressions
 open Fable.Core
 open Fable.Import.JS
 
@@ -20,11 +19,11 @@ module Mqtt =
 
     and IClientOptions = interface end
 
-    and [<KeyValueList>] ClientPublishOptions =
+    and ClientPublishOptions =
         | Qos of float
         | Retain of bool
 
-    and [<KeyValueList>] ClientSubscribeOptions =
+    and ClientSubscribeOptions =
         | Qos of float
 
     and [<AllowNullLiteral>] ClientSubscribeCallback =
@@ -50,7 +49,7 @@ module Mqtt =
         abstract del: packet: Packet * callback: Function -> Store
         abstract close: callback: Function -> unit
 
-    and [<KeyValueList>] ConnectOptions =
+    and ConnectOptions =
         | ProtocolId of string
         | ProtocolVersion of float
         | Keepalive of float
@@ -60,7 +59,7 @@ module Mqtt =
         | Username of string
         | Password of string
 
-    and [<KeyValueList>] ConnectionPublishOptions =
+    and ConnectionPublishOptions =
         | MessageId of float
         | Topic of string
         | Payload of string
