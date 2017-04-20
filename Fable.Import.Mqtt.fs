@@ -1,5 +1,6 @@
 ﻿namespace Fable.Import
 open System
+open System.Text.RegularExpressions
 open Fable.Core
 open Fable.Import.JS
 
@@ -18,13 +19,8 @@ module Mqtt =
         [<Emit("$0[$1]{{=$2}}")>] abstract Item: topic: string -> float with get, set
 
     and IClientOptions = interface end
-
-    and ClientPublishOptions =
-        | Qos of float
-        | Retain of bool
-
-    and ClientSubscribeOptions =
-        | Qos of float
+    and IClientPublishOptions = interface end
+    and IClientSubscribeOptions = interface end
 
     and [<AllowNullLiteral>] ClientSubscribeCallback =
         [<Emit("$0($1...)")>] abstract Invoke: err: obj * granted: Granted -> unit
@@ -32,13 +28,13 @@ module Mqtt =
     and [<AllowNullLiteral>] Client =
         inherit EventEmitter
         [<Emit("$0($1...)")>] abstract Invoke: streamBuilder: obj * options: IClientOptions -> Client
-        abstract publish: topic: string * message: Buffer * ?options: ClientPublishOptions * ?callback: Function -> Client
-        abstract publish: topic: string * message: string * ?options: ClientPublishOptions * ?callback: Function -> Client
-        abstract subscribe: topic: string * ?options: ClientSubscribeOptions list * ?callback: ClientSubscribeCallback -> Client
-        abstract subscribe: topic: ResizeArray<string> * ?options: ClientSubscribeOptions list * ?callback: ClientSubscribeCallback -> Client
-        abstract subscribe: topic: Topic * ?options: ClientSubscribeOptions list * ?callback: ClientSubscribeCallback -> Client
-        abstract unsubscribe: topic: string * ?options: ClientSubscribeOptions list * ?callback: ClientSubscribeCallback -> Client
-        abstract unsubscribe: topic: ResizeArray<string> * ?options: ClientSubscribeOptions list * ?callback: ClientSubscribeCallback -> Client
+        abstract publish: topic: string * message: Buffer * ?options: IClientPublishOptions * ?callback: Function -> Client
+        abstract publish: topic: string * message: string * ?options: IClientPublishOptions * ?callback: Function -> Client
+        abstract subscribe: topic: string * ?options: IClientSubscribeOptions * ?callback: ClientSubscribeCallback -> Client
+        abstract subscribe: topic: ResizeArray<string> * ?options: IClientSubscribeOptions * ?callback: ClientSubscribeCallback -> Client
+        abstract subscribe: topic: Topic * ?options: IClientSubscribeOptions * ?callback: ClientSubscribeCallback -> Client
+        abstract unsubscribe: topic: string * ?options: IClientSubscribeOptions * ?callback: ClientSubscribeCallback -> Client
+        abstract unsubscribe: topic: ResizeArray<string> * ?options: IClientSubscribeOptions * ?callback: ClientSubscribeCallback -> Client
         abstract ``end``: ?force: bool * ?callback: Function -> Client
         abstract handleMessage: packet: Packet * callback: Function -> Client
 
@@ -49,32 +45,9 @@ module Mqtt =
         abstract del: packet: Packet * callback: Function -> Store
         abstract close: callback: Function -> unit
 
-    and ConnectOptions =
-        | ProtocolId of string
-        | ProtocolVersion of float
-        | Keepalive of float
-        | ClientId of string
-        | Will of obj
-        | Clean of bool
-        | Username of string
-        | Password of string
-
-    and ConnectionPublishOptions =
-        | MessageId of float
-        | Topic of string
-        | Payload of string
-        | Qos of float
-        | Retain of bool
-
-    and [<AllowNullLiteral>] Connection =
-        inherit EventEmitter
-        abstract connect: ?options: ConnectOptions list -> Connection
-        abstract connack: ?options: obj -> Connection
-        abstract publish: ?options: ConnectionPublishOptions list -> Connection
-
     and [<AllowNullLiteral>] Server =
         inherit EventEmitter
 
     type [<Import("mqtt","mqtt")>] Static =
         abstract connect: brokerUrl: string -> Client
-        abstract connect: brokerUrl: string * opts: IClientOptions list -> Client
+        abstract connect: brokerUrl: string * opts: IClientOptions -> Client
