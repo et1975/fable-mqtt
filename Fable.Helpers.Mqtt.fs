@@ -26,8 +26,27 @@ type SecureClientOptions =
     | RejectUnauthorized of bool
     interface IClientOptions
 
-let [<PassGenericsAttribute>] callback (handler: string -> 'a -> unit) = 
+type ClientPublishOptions =
+    | Qos of float
+    | Retain of bool
+    interface IClientPublishOptions
+
+type ClientSubscribeOptions =
+    | Qos of float
+    interface IClientSubscribeOptions
+
+
+let [<PassGenerics>] callback (handler: string -> 'a -> unit) = 
     System.Func<string,string,unit>(fun topic msg -> ofJson msg |> handler topic)
 
 [<Import("*","mqtt")>]
 let mqtt : Static = jsNative
+
+module Options =
+
+    let inline ofList (opts:'t list) =
+        keyValueList CaseRules.LowerFirst opts :?> 't
+
+module Listener =
+    let inline ofFunc f =
+        System.Func<string,string,unit> f |> unbox
