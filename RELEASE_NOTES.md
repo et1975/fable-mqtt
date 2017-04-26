@@ -1,3 +1,7 @@
+### 0.7.1
+
+* Fable 1.0 compat take 2
+
 ### 0.7.0
 
 * Fable 1.0 compat
