@@ -5,7 +5,8 @@ open Fable.Core
 open Fable.Import.JS
 
 module Mqtt =
-    open Node.NodeJS
+    open Node.Events.event_types
+    open Node.Stream.stream_types
 
     type [<AllowNullLiteral>] Packet =
         abstract messageId: string with get, set
@@ -41,7 +42,7 @@ module Mqtt =
     and [<AllowNullLiteral>] Store =
         abstract put: packet: Packet * callback: Function -> Store
         abstract get: packet: Packet * callback: Function -> Store
-        abstract createStream: unit -> ReadableStream
+        abstract createStream: unit -> Readable<_>
         abstract del: packet: Packet * callback: Function -> Store
         abstract close: callback: Function -> unit
 
