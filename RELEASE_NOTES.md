@@ -2,6 +2,10 @@
 
 * Fable 1.0 - nuget edition 
 
+### 0.7.3
+
+* Updated for new NodeJS namespaces hiarchy
+
 ### 0.7.2
 
 * Fable 1.0 compat take 3
