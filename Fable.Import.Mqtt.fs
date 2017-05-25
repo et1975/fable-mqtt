@@ -5,8 +5,8 @@ open Fable.Core
 open Fable.Import.JS
 
 module Mqtt =
-    open Node.Events.event_types
-    open Node.Stream.stream_types
+    open Node.Events
+    open Node.Stream
 
     type [<AllowNullLiteral>] Packet =
         abstract messageId: string with get, set

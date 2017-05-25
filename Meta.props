@@ -1,0 +1,11 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<PropertyGroup>
+<Description>Fable bindings for MQTT.js</Description>
+<PackageProjectUrl>https://github.com/prolucid/fable-mqtt</PackageProjectUrl>
+<PackageLicenseUrl>https://raw.githubusercontent.com/prolucid/fable-mqtt/master/LICENSE.md</PackageLicenseUrl>
+<RepositoryUrl>https://github.com/prolucid/fable-mqtt.git</RepositoryUrl>
+<PackageTags>mqtt;fsharp;fable</PackageTags>
+<Authors>Justin Sacks</Authors>
+<Version>0.8.1-beta-1</Version>
+</PropertyGroup>
+</Project>
