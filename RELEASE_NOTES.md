@@ -1,3 +1,7 @@
+### 0.8.1
+
+* Fable 1.1 edition 
+
 ### 0.8.1-beta-1
 
 * Fable 1.0 - nuget edition 
