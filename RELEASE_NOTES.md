@@ -1,3 +1,7 @@
+### 2.0.0-beta-1
+
+* Fable 2.0 edition 
+
 ### 0.8.1
 
 * Fable 1.1 edition 

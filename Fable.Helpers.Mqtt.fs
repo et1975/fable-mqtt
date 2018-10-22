@@ -1,7 +1,6 @@
 ﻿module Fable.Helpers.Mqtt
     
 open Fable.Core
-open Fable.Import.JS
 open Fable.Import.Mqtt
 open Fable.Core.JsInterop
 
@@ -36,7 +35,7 @@ type ClientSubscribeOptions =
     interface IClientSubscribeOptions
 
 
-let [<PassGenerics>] callback (handler: string -> 'a -> unit) = 
+let inline callback ofJson (handler: string -> 'a -> unit) = 
     System.Func<string,string,unit>(fun topic msg -> ofJson msg |> handler topic)
 
 [<Import("*","mqtt")>]
